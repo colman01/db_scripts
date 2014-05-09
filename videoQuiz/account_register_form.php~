@@ -38,8 +38,8 @@ account.
 
   <tr>
     <td align="right">Username:&nbsp;</td>
-    <td align="left" ><input name="firstname" type="text" value="<?=$firstname?>" /></td>
-    <td align="left" ><font color="red"><?=$firstnameMsg?></font></td>
+    <td align="left" ><input name="username" type="text" value="<?=$username?>" /></td>
+    <td align="left" ><font color="red"><?=$username?></font></td>
   </tr>
   <tr><td>&nbsp;</td></tr>
   <tr>

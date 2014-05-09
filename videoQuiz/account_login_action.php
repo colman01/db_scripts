@@ -5,7 +5,7 @@ require_once('database_scripts/database.php');
 select_database();
 
 $paramList = array(
- 'username'   ,
+ 'username' ,
  'password'
 );
 
@@ -19,9 +19,9 @@ foreach ($paramList as $param)
 
 //email
 /*if (! preg_match("/^[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\.[A-Za-z]{2,4}$/", $username)) {
-    $inputError = TRUE;
-    $usernameMsg = "Please fill in the username you used to register an ".
-                "account at this website.";
+$inputError = TRUE;
+$usernameMsg = "Please fill in the username you used to register an ".
+"account at this website.";
 }*/
 
 //password
