@@ -1,9 +1,11 @@
 <?php
 header('Pragma: no-cache');
 
+require_once('database_scripts/database.php');
+select_database();
 
 $paramList = array(
- 'email'   ,
+ 'username'   ,
  'password'
 );
 
@@ -16,11 +18,11 @@ foreach ($paramList as $param)
 //validity checks for input data
 
 //email
-if (! preg_match("/^[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\.[A-Za-z]{2,4}$/", $email)) {
+/*if (! preg_match("/^[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\.[A-Za-z]{2,4}$/", $username)) {
     $inputError = TRUE;
-    $emailMsg = "Please fill in the email address you used to register an ".
+    $usernameMsg = "Please fill in the username you used to register an ".
                 "account at this website.";
-}
+}*/
 
 //password
 if (strlen($password) < 4) {
@@ -34,7 +36,6 @@ if ($inputError) {
 }
 
 
-require_once('database_scripts/autoopen_database.php');
 
 
 //mysqlify parameters
@@ -42,7 +43,26 @@ foreach ($paramList as $param)
     $GLOBALS[$param.'Sql'] = mysql_real_escape_string($GLOBALS[$param]);
 
 
-$query = "SELECT * FROM accounts WHERE email='$emailSql'";
+echo "Here in the action script '$usernameSql'";
+
+//$query = "SELECT * FROM accounts WHERE username='$usernameSql'";
+//$query = "SELECT * FROM accounts LIMIT 0,1";
+
+//SELECT *
+//FROM `accounts`
+//ORDER BY `accounts`.`username` ASC
+//LIMIT 0 , 30
+
+/*
+SELECT *
+FROM accounts
+WHERE username = 'g'
+LIMIT 0 , 30
+*/
+
+$query = "SELECT * FROM accounts WHERE username = '$usernameSql' LIMIT 0 , 30";
+
+
 $result = mysql_query($query, $conn);
 if (! $result)
     die("couldn't query database to authenticate you: ".mysql_error());
@@ -52,7 +72,7 @@ mysql_free_result($result);
 
 
 if (! $row) {
-    $emailMsg = "The email address $email isn't registered at this website.";
+    $usernameMsg = "The email address $username isn't registered at this website.";
     require('account_login_form.php');
     exit;
 }
@@ -68,6 +88,8 @@ if ($row['password'] != $password) {
 startAccountSession($row['account_id']);
 
 
+
+
 header("HTTP/1.1 302 Moved Temporarily");
-header("Location: account_home.php?$SID");
+header("Location: phpinfo.php?$SID");
 ?>

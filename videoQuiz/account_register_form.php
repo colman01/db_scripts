@@ -1,11 +1,7 @@
 <?php
-
 header('Pragma: no-cache');
-
-$title = "CarLand - Register Your New Account";
-
+$title = "Video Quiz - Register Your New Account";
 ?>
-
 
 <font size="3"><b>Enter your Details</b></font>
 
@@ -18,9 +14,7 @@ account.
 </p>
 &nbsp;<br />
 
-
 <form action="account_register_action.php" method="post">
-
 <center>
 <table cellspacing="3" cellpadding="0">
 
@@ -43,34 +37,11 @@ account.
   <tr><td>&nbsp;</td></tr>
 
   <tr>
-    <td align="right">Firstname:&nbsp;</td>
+    <td align="right">Username:&nbsp;</td>
     <td align="left" ><input name="firstname" type="text" value="<?=$firstname?>" /></td>
     <td align="left" ><font color="red"><?=$firstnameMsg?></font></td>
   </tr>
-  <tr>
-    <td align="right">Lastname:&nbsp;</td>
-    <td align="left" ><input name="lastname" type="text" value="<?=$lastname?>" /></td>
-    <td align="left" ><font color="red"><?=$lastnameMsg?></font></td>
-  </tr>
   <tr><td>&nbsp;</td></tr>
-
-  <tr>
-    <td align="right">Address:&nbsp;</td>
-    <td align="left" ><input name="address" type="text" value="<?=$address?>" /></td>
-    <td align="left" ><font color="red"><?=$addressMsg?></font></td>
-  </tr>
-  <tr>
-    <td align="right">City:&nbsp;</td>
-    <td align="left" ><input name="city" type="text" value="<?=$city?>" /></td>
-    <td align="left" ><font color="red"><?=$cityMsg?></font></td>
-  </tr>
-  <tr>
-    <td align="right">Phone:&nbsp;</td>
-    <td align="left" ><input name="phone" type="text" value="<?=$phone?>" /></td>
-    <td align="left" ><font color="red"><?=$phoneMsg?></font></td>
-  </tr>
-  <tr><td>&nbsp;</td></tr>
-
   <tr>
     <td colspan="3" align="center">
       <input name="Sign Up" type="submit" VALUE="Sign Up" />
@@ -79,8 +50,4 @@ account.
 
 </table>
 </center>
-
 </form>
-
-
-<?php require('layout/pageend.php'); ?>

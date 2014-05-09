@@ -12,9 +12,9 @@ $title = "CarLand - Login To Your Account";
 <form action="account_login_action.php" method="post" >
 <table>
   <tr>
-    <td align="right" width="0">Email:</td>
-    <td><input name="email" type="text" value="<?=$email?>" /></td>
-    <td><font color="red"><?=$emailMsg?></font></td>
+    <td align="right" width="0">Username:</td>
+    <td><input name="username" type="text" value="<?=$username?>" /></td>
+    <td><font color="red"><?=$usernameMsg?></font></td>
   </tr>
 
   <tr>

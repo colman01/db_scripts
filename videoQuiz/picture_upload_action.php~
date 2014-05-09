@@ -4,7 +4,7 @@ ini_set("memory_limit", "256M");
 
 
 $RANDOM_NAME_LENGTH = 16;
-$UPLOAD_DIR         = 'videos';
+$UPLOAD_DIR         = 'video';
 
 $PICTURE_WIDTH      = 640;
 $PICTURE_HEIGHT     = 480;

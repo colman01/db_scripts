@@ -4,6 +4,11 @@ header('Pragma: no-cache');
 require_once('session_check.php');
 if ($SID) require('errorpages/already_registered.php');
 
+require_once('database.php');
+
+
+select_database();
+
 
 $paramList = array(
  'username'        => 'string',

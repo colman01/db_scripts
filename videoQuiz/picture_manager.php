@@ -2,12 +2,12 @@
 
 require_once('database_scripts/standard_queries.php');
 
-$title = "CarLand - Manage Pictures";
+$title = "Video Quiz - Manage Videos";
 
 ?>
 
 
-<font size="3">Manage Pictures for Car Ad</font><br />
+<font size="3">Manage Videos for Quiz</font><br />
 &nbsp;<br />
 
 <table cellspacing="0" cellpadding="0" border="0" width="100%"><tr>

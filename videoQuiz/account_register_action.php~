@@ -4,6 +4,11 @@ header('Pragma: no-cache');
 require_once('session_check.php');
 if ($SID) require('errorpages/already_registered.php');
 
+require_once('database.php');
+
+
+select_database();
+
 
 $paramList = array(
  'username'        => 'string',
@@ -57,8 +62,8 @@ require_once('database_scripts/autoopen_database.php');
 
 
 //mysqlify parameters
-if ($isEmailPublic != 'yes')
-    unset($isEmailPublic);
+//if ($isEmailPublic != 'yes')
+//   unset($isEmailPublic);
 
 foreach ($paramList as $paramName => $paramType) {
     if ($paramType == 'string')
@@ -95,24 +100,14 @@ if ($present) {
 //add new account
 $query = "INSERT INTO accounts (".
  "account_id   , ".
- "firstname    , ".
- "lastname     , ".
+ "username    , ".
  "email        , ".
- "isEmailPublic, ".
- "password     , ".
- "address      , ".
- "city         , ".
- "phone       ".
+ "password     , "
 ") VALUES (".
  "NULL, ".
- "$firstnameSql, ".
- "$lastnameSql, ".
+ "$usernameSql, "..
  "$emailSql, ".
- "$isEmailPublicSql, ".
- "$passwordSql, ".
- "$addressSql, ".
- "$citySql, ".
- "$phoneSql".
+ "$passwordSql, "
 ")";
 
 
