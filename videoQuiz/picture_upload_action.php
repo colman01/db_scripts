@@ -15,9 +15,9 @@ $THUMB_HEIGHT       = 105;
 header('Pragma: no-cache');
 
 
-require_once('IMT_imageToolkit.php');
-require_once('session_check.php');
-if (! $SID) require('errorpages/not_logged_in.php');
+//require_once('IMT_imageToolkit.php');
+//require_once('session_check.php');
+//if (! $SID) require('errorpages/not_logged_in.php');
 
 //$carad_id = (int)($_POST['carad_id']);
 

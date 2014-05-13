@@ -105,6 +105,8 @@ $query = "INSERT INTO `videoQuiz`.`accounts` (`account_id`, `email`, `password`,
 
 $result = mysql_query($query, $conn);
 
+
+
 if (! $result)
 die ("sorry, couldn't register you due to a database error: ".mysql_error());
 
@@ -114,6 +116,7 @@ die ("unknwown problem with database: ".mysql_error());
 
 startAccountSession($account_id);
 
-header("HTTP/1.1 302 Moved Temporarily");
+//header("HTTP/1.1 302 Moved Temporarily");
+header("Location: accountSuccess.php?$SID");
 //header("Location: account_home.php?$SID");
 ?>

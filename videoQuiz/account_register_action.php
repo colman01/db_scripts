@@ -97,13 +97,16 @@ if ($present) {
 
 //add new account
 
-echo "action script '$username' '$email' '$password'";
+//echo "action script '$username' '$email' '$password'";
 
 //$query = "INSERT INTO `videoQuiz`.`quizOwner` (`account_id`, `quiz_id`) VALUES ('1', '5')";
 
 $query = "INSERT INTO `videoQuiz`.`accounts` (`account_id`, `email`, `password`, `username`) VALUES (NULL, '$email', '$password', '$username')";
 
 $result = mysql_query($query, $conn);
+
+if ( $result)
+echo ("done");
 
 if (! $result)
 die ("sorry, couldn't register you due to a database error: ".mysql_error());
@@ -114,6 +117,7 @@ die ("unknwown problem with database: ".mysql_error());
 
 startAccountSession($account_id);
 
-header("HTTP/1.1 302 Moved Temporarily");
+//header("HTTP/1.1 302 Moved Temporarily");
+header("Location: accountSuccess.php?$SID");
 //header("Location: account_home.php?$SID");
 ?>
