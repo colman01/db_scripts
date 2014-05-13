@@ -62,6 +62,12 @@ $title = "Create Quiz";
     <tr>
       <td align="right">Quiz :</td>
       <td align="left"><select name="quiz">
+	<!-- option <?= ($item == $make) ? 'selected' : ''?>><?=$item?></option -->
+	<option >1</option>
+	<option >2</option>
+	<option >3</option>
+	<option >4</option>
+	<option >5</option>
       </select></td>
     </tr>
     <tr>
