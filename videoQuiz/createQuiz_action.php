@@ -147,7 +147,8 @@ if (! $quiz_id)
 
 //$account = getAccount($_SESSION['account_id']);
 
-$quizLink = "http://{$_SERVER['SERVER_NAME']}/quiz_view.php?quiz_id=$quiz_id";
+//$quizLink = "http://{$_SERVER['SERVER_NAME']}/quiz_view.php?quiz_id=$quiz_id";
+$quizLink = "http://{$_SERVER['SERVER_NAME']}/";
 
 $to      = 'colman01@gmail.com';
 $subject = 'New Quiz Entry';
@@ -162,7 +163,7 @@ $message =
 "Description:\n".
 "$description\n"
 ;
-$headers = 'From: carLand' . "\r\n" .
+$headers = 'From: quiz creator' . "\r\n" .
 'Reply-To: mrneilbrady@hotmail.com, colman01@gmail.com' . "\r\n" .
 'X-Mailer: PHP/' . phpversion();
 mail($to, $subject, $message, $headers);
