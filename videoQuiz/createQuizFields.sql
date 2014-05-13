@@ -22,7 +22,8 @@ CREATE TABLE IF NOT EXISTS `quizData` (
    `optionAnswer2` varchar(100) NOT NULL,
    `optionAnswer3` varchar(100) NOT NULL,
    `optionAnswer4` varchar(100) NOT NULL,
-   `rating` FLOAT(100) NOT NULL,
+   `optionSelected` int(11) NOT NULL,
+   `rating` FLOAT(11) NOT NULL,
    `quiz_id` int(11) NOT NULL,
   PRIMARY KEY (`quiz_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -31,6 +32,4 @@ CREATE TABLE IF NOT EXISTS `quizData` (
 -- data for table `quizData`
 --
 
-INSERT INTO `videoQuiz`.`quizData` (`question`, `answer1`, `answer2`, `answer3`, `answer4`, `correctAnswer`, `feedbackQuestion`, `feedbackInputAnswer`, `optionQuestion`, `optionAnswer1`, `optionAnswer2`, `optionAnswer3`, `optionAnswer4`, `rating`, `quiz_id`) VALUES ('what color is chocolate', 'brown', 'not brown', 'white', 'black', '1', 'some feedback question', '', 'opt question', 'opt 1', 'opt 2', 'opt 3', 'opt 4', '.99', '1');
-
-
+INSERT INTO `videoQuiz`.`quizData` (`question`, `answer1`, `answer2`, `answer3`, `answer4`, `correctAnswer`, `feedbackQuestion`, `feedbackInputAnswer`, `optionQuestion`, `optionAnswer1`, `optionAnswer2`, `optionAnswer3`, `optionAnswer4`, `optionSelected`, `rating`, `quiz_id`) VALUES ('what color is chocolate', 'brown', 'not brown', 'white', 'black', '1', 'product feedback question', '', 'Your opinion please', 'opinion 1', 'opinion 2', 'opinion 3', 'opinion 4', '', '.2', '3');

@@ -1,0 +1,131 @@
+<?php
+header("Pragma: no-cache");
+
+//require_once('session_check.php');
+//if (! $SID) require('errorpages/need_to_register.php');
+
+$paramList = array(
+ 'question'              => 'string',
+ 'answer1'               => 'string',
+ 'answer2'               => 'string',
+ 'answer3'               => 'string',
+ 'answer4'               => 'string',
+ 'correctAnswer'         => 'int',
+ 'feedbackQuestion'      => 'string',
+ 'feedbackInputAnswer'   => 'string',
+ 'optionQuestion'        => 'string',
+ 'optionAnswer1'         => 'string',
+ 'optionAnswer2'         => 'string',
+ 'optionAnswer3'         => 'string',
+ 'optionAnswer4'         => 'string',
+ 'optionSelected'        => 'int',
+ 'rating'                => 'float'
+);
+
+//extract parameters to be global variables
+foreach ($paramList as $paramName => $paramType) {
+	echo $paramName;
+    eval("\$$paramName = \$_POST['$paramName'];");
+}
+
+
+//require_once('database_scripts/standard_queries.php');
+/*$makeList  = getNameList('makes');
+
+if (! $make) $make = $makeList[0];
+$modelList = getModelNameList($make);
+
+if (! $model || ! in_array($model, $modelList))
+    $model = $modelList[0];
+
+$typeList  = getNameList('types');
+$fuelList  = getNameList('fuels');
+
+
+require_once('mmm_datafiles.php');
+$date_thism = getFileContent($FILENAME_THIS_MONTH_DATE);
+$date_nextm = getFileContent($FILENAME_NEXT_MONTH_DATE);
+
+$this_month_glink = getFileContent($FILENAME_THIS_MONTH_GLINK);
+
+$next_month_glink = getFileContent($FILENAME_NEXT_MONTH_GLINK);
+*/
+
+
+$title = "Create Quiz";
+//require('layout/pagebegin.php');
+?>
+
+<center>
+<form action="createQuiz_action.php" method="post" >
+  <input type="hidden" name="<?=session_name()?>" value="<?=session_id()?>" >
+  <table border="0" class="copy">
+    <tr>
+      <td align="right">Quiz :</td>
+      <td align="left"><select name="quiz">
+      </select></td>
+    </tr>
+    <tr>
+      <td align="right">Question:&nbsp;</td>
+      <td align="left" ><input name="question" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Auswer 1:&nbsp;</td>
+      <td align="left" ><input name="answer1" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Answer 2:&nbsp;</td>
+      <td align="left" ><input name="answer2" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+    <tr>
+      <td align="right">Answer 3:&nbsp;</td>
+      <td align="left" ><input name="answer3" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Answer 4:&nbsp;</td>
+      <td align="left" ><input name="answer4" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Correct Answer:&nbsp;</td>
+      <td align="left" ><input name="correctAnswer" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Feedback Question:&nbsp;</td>
+      <td align="left" ><input name="feedbackQuestion" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Option Question:&nbsp;</td>
+      <td align="left" ><input name="optionQuestion" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Answer 1:&nbsp;</td>
+      <td align="left" ><input name="optionAnswer1" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Answer 2:&nbsp;</td>
+      <td align="left" ><input name="optionAnswer2" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Answer 3:&nbsp;</td>
+      <td align="left" ><input name="optionAnswer3" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <tr>
+      <td align="right">Answer 4:&nbsp;</td>
+      <td align="left" ><input name="optionAnswer4" type="text" value="<?= $date ?>" /></td>
+    </tr>
+    <td align="right">Description:</td>
+    <td align="left" colspan="2">
+      <textarea  align="right" name="description" rows=4 cols=23>Summary</textarea>
+    </td>
+  </tr>
+&nbsp;<br />
+<tr>
+      <td colspan="3" align="center">
+        <input type="submit" value="Enter Quiz" />
+      </td>
+    </tr>
+  </table>
+
+</form>
+</center>
