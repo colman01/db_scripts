@@ -169,5 +169,5 @@ mail($to, $subject, $message, $headers);
 
 
 header("HTTP/1.1 302 Moved Temporarily");
-//header("Location: carad_view.php?$SID&carad_id=$carad_id");
+header("Location: carad_view.php?$SID&carad_id=$carad_id");
 ?>
