@@ -17,20 +17,18 @@ $quiz   = getQuiz($quiz_id);
 
 //htmlify data (make it ready to be put into an html page)
 $htmlConvItems_carad = array(
- 'make',
- 'model',
- 'colour',
- 'caption',
- 'description',
- 'fuel',
- 'transm'
+ 'question',
+ 'answer1',
+ 'answer2',
+ 'answer3',
+ 'answer4',
+ 'correctAnswer'
 );
 
 $htmlConvItems_account = array(
- 'firstname',
- 'lastname',
- 'city',
- 'phone'
+ 'username',
+ 'email',
+ 'city'
 );
 
 foreach ($htmlConvItems_carad as $item)
@@ -39,7 +37,7 @@ foreach ($htmlConvItems_carad as $item)
 foreach ($htmlConvItems_account as $item)
     $account[$item] = htmlentities($account[$item]);
 
-$title = "CarLand - A Car Ad";
+$title = "Quiz Text Summary";
 require('layout/pagebegin.php');
 ?>
 
@@ -49,32 +47,32 @@ require('layout/pagebegin.php');
 
 <table border="0"><tr>
 <td valign="top">
-  <b>Make:</b> <?=$carad['make']?><br />
-  <b>Model:</b> <?=$carad['model']?><br />
-  <b>Price:</b> <span class="head">&euro;<?=$carad['price']?></span><br />
-  <b>Type:</b> <?=$carad['type']?><br />
-  <b>Colour:</b> <?=$carad['colour']?><br />
-  <b>Year:</b> <?=$carad['year']?><br />
-  <b>Nct:</b> Year: <?=$carad['nct_year']?>&nbsp; Month:<?=$carad['nct_month']?><br />
-  <b>Engine:</b> <?=$carad['engine']?><br />
-  <b>Doors:</b> <?=$carad['doors']?><br />
-  <b>Fuel Type:</b> <?=$carad['fuel']?><br />
-  <b>Transmission:</b> <?=$carad['transm']?><br />
-  <b>Seats:</b> <?=$carad['seats']?><br />
-  <b>Mileage:</b> <?=$carad['mileage']?><br />
-  <b>Power:</b> <?=$carad['power']?><br />
-  <b>Date Entered:</b> <?=$carad['timestamp']?><br />
-  <?php if ($account['city']) { ?> <b>Location:</b> <?=$account['city']?><br /> <?php } ?>
+  <b>Question:</b> <?=$quiz['question']?><br />
+  <b>answer1:</b> <?=$quiz['answer1']?><br />
+  <b>answer2:</b> <?=$quiz['answer2']?><br />
+  <b>answer3:</b> <?=$quiz['answer3']?><br />
+  <b>answer4:</b> <?=$quiz['answer4']?><br />
+  <!-- b>Price:</b> <span class="head">&euro;<?=$carad['price']?></span><br / -->
+  <b>correctAnswer:</b> <?=$quiz['correctAnswer']?><br />
+  <b>feedbackQuestion:</b> <?=$quiz['feedbackInputAnswer']?><br />
+  <b>optionQuestion:</b> <?=$quiz['optionQuestion']?><br />
+  <!-- b>Nct:</b> Year: <?=$carad['nct_year']?>&nbsp; Month:<?=$carad['nct_month']?><br / -->
+  <b>optionAnswer1:</b> <?=$quiz['optionAnswer1']?><br />
+  <b>optionAnswer2:</b> <?=$quiz['optionAnswer2']?><br />
+  <b>optionAnswer3</b> <?=$quiz['optionAnswer3']?><br />
+  <b>optionAnswer4:</b> <?=$quiz['optionAnswer4']?><br />
+  <b>optionSelected:</b> <?=$quiz['optionSelected']?><br />
+  <b>Rating:</b> <?=$quiz['rating']?><br />
+  <b>Date Entered:</b> <?=$quiz['timestamp']?><br />
 </td>
-<td valign="top">&nbsp;</td>
-<td valign="top">
+<!-- td valign="top">&nbsp;</td>
+< td valign="top">
   <b>Contact:</b><br />
   <?php if ($account['phone']) { ?> Phone: <?=$account['phone']?><br /> <?php } ?>
   <?php if ($account['isEmailPublic']) echo "Email: ".$account['email']; ?><br />
-</td>
-<td>
-<?php if ($isOwnCarad) { ?>
-      <form method="get" action="picture_manager.php" style="margin: 0;">
+</td >
+<td -->
+<form method="get" action="picture_manager.php" style="margin: 0;">
         <input type="hidden" name="<?=session_name()?>" value="<?=session_id()?>" />
         <input type="hidden" name="carad_id" value="<?=$carad_id?>" />
         <input type="submit" value="Upload Pictures" />
@@ -89,14 +87,22 @@ require('layout/pagebegin.php');
         <input type="hidden" name="carad_id" value="<?=$carad_id?>" />
         <input type="submit" value="Remove" />
       </form>
-<?php } ?>
+
+<form method="get" action="quiz_manager.php" style="margin: 0;">
+        <!-- input type="hidden" name="<?=session_name()?>" value="<?=session_id()?>" / -->
+        < input type="hidden" name="quiz_id" value="<?=$quiz_id?>" / -->
+        <input type="submit" value="Upload Quiz" />
+      </form>
+      <form method="post" action="quiz_edit_form.php" style="margin: 0;">
+        <!-- input type="hidden" name="<?=session_name()?>" value="<?=session_id()?>" / -->
+        <input type="hidden" name="quiz_id" value="<?=$quiz_id?>" />
+        <input type="submit" value="Edit Details" />
+      </form>
+      <form method="get" action="quiz_remove_form.php" style="margin: 0;">
+        <!-- input type="hidden" name="<?=session_name()?>" value="<?=session_id()?>" / -->
+        <input type="hidden" name="quiz_id" value="<?=$quiz_id?>" />
+        <input type="submit" value="Remove" />
+      </form>
 </td>
 </tr></table>
-<?=$carad['description']?>
-<a name="pics"></a>
 &nbsp;<br />
-
-
-
-
-<?php require('layout/pageend.php'); ?>
